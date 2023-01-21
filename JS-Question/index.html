@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1). Given an array of integers nums and an integer target, return indices of the
+    two numbers such that they add up to target. 
+    
+    Input: nums = [2,7,11,15], target =
+    9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]. -->
+    <!-- <script>
+        function abc(nums, target) {
+          for (let i = 0; i < nums.length; i++) {
+            for (let j = 0; j < nums.length; j++) {
+              if (nums[i] + nums[j] == target) {
+                return [i, j];
+              }
+            }
+          }
+        }
+        let nums = [3, 4, 5, 2, 4, 6],
+          target = 5;
+        let twoSum = abc(nums, target);
+        console.log(twoSum);
+      </script> -->
+
+    <!-- -------------------- patern problem----------- -->
+    <!-- 1. Square star pattern
+
+            *****
+            *****
+            *****
+            *****
+            ***** 
+        -->
+    <script>
+    //   let n = 5; //row or column count
+    //   let string = "";
+
+    //   for (let i = 0; i < n; i++) {
+    //     for (let j = 0; j < n; j++) {
+    //       document.write("* ");
+    //     }
+    //     document.write("<br>");
+    //   }
+
+    // let n = 5, string = '';
+    // for(let i=0; i<n; i++){
+    //     for(let j=0; j<n; j++){
+    //         string += '*'
+    //     }
+    //      string += '<br>'
+    // }
+    // document.write(string)
+
+    </script>
+
+    <!-- 2 Hollow square pattern
+                *****
+                *   *
+                *   *
+                *   *
+                *****
+         -->
+
+    <script>
+    //   function print_rectangle(n, m) {
+    //     for (i = 1; i <= n; i++) {
+    //       for (j = 1; j <= m; j++) {
+    //         if (i == 1 || i == n || j == 1 || j == m) document.write("*");
+    //         else document.write("&nbsp ");
+    //       }
+    //       document.write("<br>");
+    //     }
+    //   }
+    //   let rows = 5, columns = 5;
+    //   print_rectangle(rows, columns);
+
+    // function hollowSquare(row,col,string){
+    //     for(let i=0; i<row; i++){
+    //         for(let j=0; j<col; j++){
+    //             if(i===0 || i===row-1 || j===0 || j===col-1){
+    //                 string += '*'
+    //             }
+    //             else{
+    //                 string += '&nbsp ';
+    //             }
+    //         }
+    //         string += '<br>'
+    //     }
+    //     document.write(string);
+    // }
+    // let row = 5, col =5;
+    // let string = '';
+    // hollowSquare(row,col,string)
+      
+    </script>
+
+    <!-- 3) Right triangle pattern
+           *
+           **
+           ***
+           ****
+           ***** 
+    -->
+    <script>
+        // for(row=1;row<=5;row++){
+        //     for(col=1;col<=row;col++){
+        //         document.write('*')
+        //     }
+        //     document.write('<br>')
+        // }
+
+        // function rightAngle(row,col,string){
+        //     for(i=0;i<row;i++){
+        //         for(j=0;j<=i;j++){
+        //             string += '*';
+        //         }
+        //         string += '<br>'
+        //     }
+        //     document.write(string)
+        // }
+        // let row =5,col=5;
+        // let string = '';
+        // rightAngle(row,col,string)
+    </script>
+    <!-- 4) Right triangle pattern
+               *****
+               ****
+               ***
+               **
+               *
+    -->
+    <script>
+        // for(row=1;row<=5;row++){
+        //     for(col=row;col<=5;col++){
+        //         document.write('*')
+        //     }
+        //     document.write("<br>")
+        // }
+        // //step 2
+        // let n=5
+        // for(row=1;row<=n;row++){
+        //     for(col=0;col<=n-row;col++){
+        //         document.write('*')
+        //     }
+        //     document.write("<br>")
+        // }
+    </script>
+
+
+    <!-- 5) Hollow Triangle
+        *
+        **
+        * *
+        *  *
+        *   *
+        ****** 
+    -->
+    <script>
+
+    </script>
+  </body>
+</html>
+
+<!-- let n = 5;
+let string = "";
+for (let i = 1; i <= n; i++) {
+  // printing spaces
+  for (let j = 0; j < n - i; j++) {
+    string += " ";
+  }
+  // printing star
+  for (let k = 0; k < i; k++) {
+    string += "*";
+  }
+  string += "\n";
+}
+console.log(string);
+
+let n = 5;
+let string = "";
+// External loop
+for (let i = 1; i <= n; i++) {
+  // printing spaces
+  for (let j = 1; j <= n - i; j++) {
+    string += " ";
+  }
+  // printing star
+  for (let k = 0; k < 2 * i - 1; k++) {
+    string += "*";
+  }
+  string += "\n";
+}
+console.log(string); -->

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #e3edf7;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .progressBar {
+        width: 160px;
+        height: 160px;
+        position: relative;
+      }
+      .outerCercle {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        /* border: 1px solid red; */
+        padding: 15px;
+        box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+          -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+      }
+      .innerCercle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 130px;
+        width: 130px;
+        /* border: 1px solid green; */
+        border-radius: 50%;
+        box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+          inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+          -0.5px -0.5px 0px rgba(255, 222, 222, 0.7),
+          0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+          0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+      }
+      #perNumber {
+        color: #666;
+      }
+      circle {
+        fill: none;
+        stroke: url(#GradientColor);
+        stroke-width: 15px;
+        stroke-dasharray: 472;
+        stroke-dashoffset: 472;
+        animation: anim 2s linear forwards;
+      }
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      @keyframes anim {
+        100% {
+          stroke-dashoffset: 165;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progressBar">
+      <div class="outerCercle">
+        <div class="innerCercle">
+          <div id="perNumber"></div>
+        </div>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        width="160px"
+        height="160px"
+      >
+        <defs>
+          <linearGradient id="GradientColor">
+            <stop offset="0%" stop-color="#e91e63" />
+            <stop offset="100%" stop-color="#673ab7" />
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+      </svg>
+    </div>
+    <script>
+      const number = document.getElementById("perNumber");
+      let counter = 0;
+      setInterval(() => {
+        if (counter == 65) {
+          clearInterval();
+        } else {
+          counter += 1;
+          number.innerHTML = counter + "%";
+        }
+      }, 30);
+    </script>
+  </body>
+</html>

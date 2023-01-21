@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .mainBox {
+            width: 300px;
+            height: 300px;
+            border: 2px solid;
+        }
+
+        .smallBox {
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            border: 2px solid;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="mainBox"></div>
+        <div class="smallBox">
+            <div class="box box1" data-color="red">box1</div>
+            <div class="box box2" data-color="blue">box2</div>
+            <div class="box box3" data-color="green">box3</div>
+            <div class="box box4" data-color="gray">box4</div>
+        </div>
+    </div>
+</body>
+    <script>
+        const mainBox = document.querySelector('.container .mainBox');
+        const smallBox = document.querySelectorAll('.container .smallBox .box');
+
+        smallBox.forEach((ele)=>{
+            let color = ele.getAttribute('data-color')
+            window.addEventListener('load',()=>{
+                ele.style.backgroundColor= color
+            })
+            ele.addEventListener('click',(e)=>{
+                mainBox.style.backgroundColor=color
+            })
+        })
+    </script>
+</html>

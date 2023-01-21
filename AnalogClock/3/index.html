@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analog Clock</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body id="body">
+  <h2 class="heading">Analog Clock</h2>
+    <div class="clock1" id="clock">
+ 
+        <div id="center"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+        <div class="number number1">|</div>
+        <div class="number number2">|</div>
+        <div class="number number3">3</div>
+        <div class="number number4">|</div>
+        <div class="number number5">|</div>
+        <div class="number number6">6</div>
+        <div class="number number7">|</div>
+        <div class="number number8">|</div>
+        <div class="number number9">9</div>
+        <div class="number number10">|</div>
+        <div class="number number11">|</div>
+        <div class="number number12">12</div>
+         
+    </div>
+    <button id="btn">Dark Mode</button>
+</body>
+<!-- http://Clock.js -->
+<style>
+  *{
+    margin:0;
+    padding:0;
+}
+ 
+body{
+    width:100vw;
+    height:100vh;
+    background:#c1c1c4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.heading{
+    top: 15%;
+    position: absolute;
+    text-transform: uppercase;
+    font-family: cursive;
+}
+.body1{
+    width:100vw;
+    height:100vh;
+    background:#1c1f1c;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color: #c1c1c4;
+}
+ 
+#clock{
+    width:15rem;
+    height:15rem;
+    /* background:url(clock.png); */
+    background-size:100%;
+    border-radius:50%;
+}
+.clock1{
+    box-shadow:
+        -8px -8px 20px #e1e1e4, 
+        8px 8px 20px #727276, 
+        inset -4px -4px 20px #e1e1e4, 
+        inset 4px 4px 20px #727276;
+    position: relative;
+}
+.clock2{
+    box-shadow:
+        -8px -8px 20px #2b2a2b, 
+        8px 8px 20px #050205, 
+        inset -4px -4px 20px #2b2a2b, 
+        inset 4px 4px 20px #050205;
+        position: relative;
+}
+.number{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  transform: rotate(var(--rotation));
+}
+.number1{--rotation:30deg;}
+.number2{--rotation:60deg;}
+.number3{
+  --rotation:0deg;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+.number4{--rotation:120deg;}
+.number5{--rotation:150deg;}
+.number6{--rotation:180deg;}
+.number7{--rotation:210deg;}
+.number8{--rotation:240deg;}
+.number9{
+  --rotation:0deg;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+.number10{--rotation:300deg;}
+.number11{--rotation:330deg;}
+.number12{--rotation:360deg;}
+ 
+ 
+ 
+#btn{
+    position:absolute;
+    bottom:20%;
+    padding:6px;
+    background:#111;
+    color:#c1c1c4;
+    font-size:1rem;
+    letter-spacing:2px;
+    border-radius:8px;
+    font-weight:600;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: -8px -8px 20px #2b2a2b, 
+        8px 8px 20px #050205, 
+        inset -4px -4px 20px #2b2a2b, 
+        inset 4px 4px 20px #050205;
+}
+.bt1{
+    background: #c1c1c4 !important;
+    color: #1c1f1c !important;
+    box-shadow:-1px -1px 9px #e1e1e4, 
+      5px 1px 10px #727276, 
+      inset -4px -5px 25px #e1e1e4, 
+      inset 4px 4px 11px #727276 !important
+}
+ 
+#center{
+    width:0.8rem;
+    height:0.8rem;
+    border-radius:50%;
+    background:#212;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    z-index:4;
+}
+.center1{
+  background: #c1c1c4 !important;
+}
+ 
+#hours,#minutes,#seconds{
+    transform-origin:bottom;
+    z-index:2;
+    position:absolute;
+    transform:translateX(-50%);
+    left:50%;
+    bottom:50%;
+}
+ 
+#hours{
+    width:0.35rem;
+    height:3rem;
+    background:#d93c2c;
+    border-radius:50%;
+    left: calc(50% - 0.17rem);
+}
+ 
+#minutes{
+    width:0.2rem;
+    height:4rem;
+    background: #138801;
+    border-radius:50%;
+    left: calc(50% - 0.1rem);
+}
+ 
+#seconds{
+    width:0.15rem;
+    height:5rem;
+    background:#1f221e;
+    border-radius:50%;
+    left: calc(50% - 0.07rem)
+}
+.second2{
+  background: #c1c1c4 !important;
+}
+</style>
+<script>
+  
+  const setClock =()=>{
+    let currentTime = new Date()
+    let hour = currentTime.getHours();
+    let minute = currentTime.getMinutes();
+    let second = currentTime.getSeconds();
+  
+    hourRotate = (30*hour) + (minute/2);
+    minutesRotate = (6*minute) + (second/10);
+    secondRotate = 6*second;
+
+    hours.style.transform = `rotate(${hourRotate}deg)`;
+    minutes.style.transform = `rotate(${minutesRotate}deg)`;
+    seconds.style.transform = `rotate(${secondRotate}deg)`;    
+  };
+
+  setInterval(setClock,1000);
+
+  const btn = document.getElementById('btn');
+  const clock = document.getElementById('clock');
+  const body = document.getElementById('body');
+
+
+  btn.addEventListener('click',function(){
+    clock.classList.toggle('clock2');
+    body.classList.toggle('body1');
+    seconds.classList.toggle('second2');
+    center.classList.toggle('center1');
+    btn.classList.toggle('bt1');
+    if(btn.innerText == 'DARK MODE'){
+      btn.innerText = 'LIGHT MODE';
+    }else{
+      btn.innerHTML = 'DARK MODE';
+    }
+  })
+  
+
+</script>
+<!-- <script>
+  var state = false ;
+ 
+ function toggle() {
+     var body = document.getElementById('body');
+     var clock = document.getElementById('clock');
+     var mode = document.getElementById('bt');
+    var center = document.getElementById('center');
+    var second = document.getElementById('second');
+  
+     if (state) {
+         body.style.background="#c1c1c4";
+         clock.className="clock1";
+         mode.innerText="dark mode";
+         mode.style.background="#111";
+         mode.style.color="#eee";
+         center.style.background="#363436";
+         second.style.background="#1f221e";
+  
+         state = false ;
+     }
+  
+     else{
+         body.style.background="#1c1f1c";
+         clock.className="clock2";
+         mode.innerText="light mode";
+         mode.style.background="#eee";
+         mode.style.color="#111";
+         center.style.background="#cbc";
+         second.style.background="#e2e1f6";
+  
+         state = true ;
+     }
+ }
+  
+  
+ setInterval(() => 
+ {
+  
+     d = new Date();
+     htime=d.getHours();
+     mtime=d.getMinutes();
+     stime=d.getSeconds();
+  
+     hrotation = 30*htime + mtime/2 ;
+     mrotation = 6*mtime ;
+     srotation = 6*stime ;
+  
+     hour.style.transform = `rotate(${hrotation}deg)`;
+     minute.style.transform = `rotate(${mrotation}deg)`;
+     second.style.transform = `rotate(${srotation}deg)`;
+  
+ },1000);
+</script> -->
+</html>

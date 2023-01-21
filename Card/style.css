@@ -1,0 +1,135 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Capriola&family=Lato:wght@300;400;700&family=Mulish&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-family: "Mulish", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: 'Capriola', sans-serif;
+  color: #666;
+}
+body {
+  background: bisque;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
+  width: 90%;
+  margin: 0 auto;
+}
+.card {
+  position: relative;
+  flex-basis: 45%;
+  margin: auto;
+  height: 275px;
+}
+.card .content {
+  position: absolute;
+  width: 82%;
+  background: aliceblue;
+  height: 100%;
+  padding: 22px;
+  right: 0;
+  border-radius: 15px;
+  border: 2px solid #801580;
+}
+.content_text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+  inset: 0 0 0 auto;
+  width: 64.5%;
+  height: 90%;
+  overflow: hidden;
+}
+.content_text .title {
+  position: absolute;
+  padding: 10px;
+  margin: auto;
+  inset: auto 0 50%;
+  font-family: "Capriola", sans-serif;
+  text-align: center;
+  transition: bottom 500ms ease-in-out;
+}
+.card:hover .title {
+  bottom: 75%;
+  transition: bottom 300ms 495ms ease-out;
+}
+.content_text .title::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: 5%;
+  width: 90%;
+  height: 5px;
+  border-radius: 2.5px;
+  background: purple;
+  transition: width 500ms 300ms ease-in-out;
+}
+.card:hover .title::before {
+  width: 0%;
+  transition: width 300ms 300ms ease-in;
+}
+.card .text {
+  position: absolute;
+  top: 100%;
+
+  transition: top 500ms ease-in;
+  text-align: justify;
+  padding: 20px;
+}
+.card:hover .text {
+  top: 25%;
+  transition: top 500ms 300ms ease-out;
+}
+.content_text h3 {
+  font-size: 16px;
+  opacity: 100%;
+  transform: translateY(0px);
+  top: 50%;
+  padding: 12px;
+  position: absolute;
+  transition: transform 500ms 500ms ease-out, opacity 300ms 500ms;
+}
+.card:hover .content_text h3 {
+  transform: translateY(25%);
+  opacity: 0%;
+  transition: transform 300ms ease-in, opacity 200ms;
+}
+
+figure.card_img {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  inset: 0 auto;
+  height: 75%;
+  width: 45%;
+  box-shadow: 5px 5px 15px hsl(0deg 0% 0% / 50%);
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 10px;
+  border: 2px solid #801580;
+}
+figure.card_img:hover {
+  transform: scale(1.2);
+}
+.card figure img {
+  min-height: 100%;
+  transform: rotate(0deg);
+  scale: 1;
+  transition: scale 500ms ease-in-out, transform 500ms ease-in-out;
+}
+@media (max-width: 768px) {
+  .card {
+    flex-basis: 100%;
+  }
+}

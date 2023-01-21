@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <figure class="hover-menu">
+    <img src="https://picsum.photos/id/1060/800/480.jpg" alt="">
+    <div class="menus">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </div>
+  </figure>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    figure.hover-menu {
+      position: relative;
+      width: 75%;
+      background: black;
+      overflow: hidden;
+    }
+    img{
+      width: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    transition: all 0.5s ease;
+    }
+    .hover-menu:hover img{
+      right: -28%;
+    }
+    .menus {
+      position: absolute;
+      top: 0;
+      left: -25%;
+      width: 25%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      transition: all 0.5s ease;
+      /* opacity: 0; */
+  }
+  .hover-menu:hover .menus{
+      /* opacity: 1; */
+      left: 9%;
+    }
+    .menus ul {
+      list-style: none;
+    }
+    .menus ul li {
+      padding: 10px 0;
+      text-decoration: none;
+      transition: all 0.5s ease;
+    }
+    .menus ul li:hover  {
+      text-decoration: underline;
+    }
+    .menus ul li a{
+      text-decoration: none;
+      color: white;
+      font-size: 22px;
+    }
+    @media (max-width: 768px){
+      figure.hover-menu {
+      width: 100%;
+      }
+    }
+  </style>
+  
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #clockcontainer{
+        background-image: url(clock2.png);
+        width: 450px;
+        height: 450px;
+        position: relative;
+        background-size: cover;
+        
+    }
+    .hand{
+        position: absolute;
+        left: 49%;
+        bottom: 50%;
+        transform: translateX(-50%);
+        transform-origin: bottom;
+    }
+    #hours{
+        width: 6px;
+        height: 30%;
+        background: black;
+    }
+    #minutes{
+        width: 4px;
+        height: 40%;
+        background: black;
+    }
+    #seconds{
+        width: 3px;
+        height: 45%;
+        background: rgb(204, 20, 20);
+    }
+</style>
+<body>
+    <div id="clockcontainer">
+        <div id="hours" class="hand"></div>
+        <div id="minutes" class="hand"></div>
+        <div id="seconds" class="hand second"></div>
+    </div>
+</body>
+<script>
+    
+    setInterval(()=>{
+        let date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+        
+        hourRotate = 30*hour + minute/2;
+        minuteRotate = 6*minute + second/10;
+        secondRoatae = 6*second;
+
+        hours.style.transform = `rotate(${hourRotate}deg)`;
+        minutes.style.transform = `rotate(${minuteRotate}deg)`;
+        seconds.style.transform = `rotate(${secondRoatae}deg)`;
+    },1000);
+    
+</script>
+</html>

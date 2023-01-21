@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        /* display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+         background: #10101E;
+        overflow: hidden; */
+    }
+    #clock{
+  color: #fff;
+  background: #10101E;
+  font-family: "Segoe UI", sans-serif;
+  width: 340px;
+  padding: 15px 10px;
+  border: 3px solid #2E94E3;
+  border-radius: 5px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+  transition: 0.5s;
+  transition-property: background, box-shadow;
+  text-align: center;
+}
+
+#clock:hover{
+  background: #2E94E3;
+  box-shadow: 0 0 30px #2E94E3;
+}
+</style>
+<body>
+    <div id="clock"></div>
+    <script>
+
+    //------- first method---------------    
+        setInterval(getTime,1000);
+        function getTime(){
+            let time = new Date();
+            let digitalTime = time.toLocaleTimeString();
+            let hour = time.getHours > 12? time.getHours()-12: time.getHours();
+            let am_pm = hour>=12?"PM":"AM";
+            if(hour==00){
+                hour =12;
+                am_pm ="AM";
+            }
+            hour = hour <10? "0"+hour: hour;
+            let min = time.getMinutes<10 ? "0"+time.getMinutes():time.getMinutes();
+            let sec = time.getSeconds()<10 ?"0"+time.getSeconds():time.getSeconds();
+            
+
+            document.getElementById("clock").innerHTML = `${hour} : ${min} : ${sec} ${am_pm}`;
+        }
+
+        //------- second method---------------  
+
+        // setInterval(getTime,1000);
+        // function getTime(){
+        //     let date = new Date;
+        //     let time = date.toLocaleTimeString();
+
+        //     document.getElementById("clock").innerHTML = time;
+        // }
+
+        // third method------------------
+
+        // function displayTime(){
+        //     const time = new Date();
+        //     let hour = time.getHours();
+        //     const min = time.getMinutes()<10?"0"+time.getMinutes():time.getMinutes();
+        //     const second = time.getSeconds()<10?"0"+time.getSeconds():time.getSeconds();
+        //     const am_pm = hour>=12?"pm":"am";
+        //     hour = time.getHours()>12 ?"0"+(time.getHours()-12) : time.getHours();
+        //     document.getElementById('root').innerHTML = `${hour}-${min}-${second} ${am_pm}`;
+        // }
+    </script>
+</body>
+</html>

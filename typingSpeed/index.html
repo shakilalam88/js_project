@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-color: blueviolet;
+        /* text-align: center; */
+    }
+    .main{
+        /* position: absolute;
+        left: 50%;
+        top: 50%;
+        overflow: hidden;
+        transform: translate(-50%,-50%); */
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="main">
+            <h2>Welcome to the typing speed</h2><br>
+            <h2 id="msg"></h2><br>
+            <textarea name="" id="mywords" cols="100" rows="10" placeholder="please type..."></textarea><br>
+            <button id="btn" class="mainbtn">Start</button>
+        </div>
+    </div>
+</body>
+<script>
+    const ary = ["my name is shakil","my home town in 'Hajipur'","i live in delhi","patna is a capital of bihar"]
+    let msg = document.getElementById('msg');
+    let typeWord = document.getElementById('mywords');
+    let btn = document.getElementById('btn');
+    let startTime, endTime;
+
+    function playGame(){
+        let randomNumber = Math.floor(Math.random()*ary.length) ;
+        msg.innerText = ary[randomNumber];
+        let date = new Date();
+        startTime = date.getTime();
+        btn.innerText = "Done";
+
+    }
+
+    function endPlay(){
+        let date = new Date();
+        endTIme = date.getTime();
+        let totalTime = (startTime - endTIme)/1000;
+        console.log(totalTime);
+    }
+
+    btn.addEventListener('click',function(){
+        if(this.innerText == 'Start'){
+            typeWord.disabled = false;
+            playGame();
+        }else if(this.innerText == "Done"){
+            typeWord.disabled = true;
+            btn.innerText = "Start";
+        }
+    })
+</script>
+</html>
