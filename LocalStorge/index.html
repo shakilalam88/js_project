@@ -21,12 +21,10 @@
             let inputVal = inputText.value;
             let localItem = JSON.parse(localStorage.getItem('items'));
             if(localItem===null){
-                arry=[]
-            }else{
-                arry =localItem
+                localItem=[]
             }
-            arry.push(inputVal)
-            localStorage.setItem('items',JSON.stringify(arry));
+            localItem.push(inputVal)
+            localStorage.setItem('items',JSON.stringify(localItem));
             inputText.value =''
         })
 
