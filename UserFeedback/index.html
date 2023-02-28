@@ -139,7 +139,53 @@
     </section>
 
     <script>
+      const feedback_section = document.querySelector(".feedback-section");
+      const rating = document.querySelectorAll(".rating .child");
+      const btn = document.querySelector("#btn");
 
+      rating.forEach((element) => {
+        element.addEventListener("click", () => {
+          rating.forEach((ele) => {
+            if (element !== ele) {
+              ele.classList.remove("active");
+            } else {
+              ele.classList.toggle("active");
+            }
+          });
+        });
+      });
+
+      btn.addEventListener("click", () => {
+        rating.forEach((ele) => {
+          // console.log(ele);
+          if (ele.classList.contains("active")) {
+            let icon = ele.children[0].innerText;
+            let text = ele.children[1].innerText;
+            feedback_section.innerHTML = `
+              <div class="response-screen">
+                <p class='child'>${icon}</p>
+                <h3>${text}</h3>
+                <p>Thanks for your feedfack ❤️</p>
+                <div class="feedback-button">
+                  <a href ='index.html'>Back</a>
+                  </div>
+                </div>
+            `;
+          }
+        });
+      });
+
+      // rating.forEach((element)=>{
+      //   element.addEventListener('click',(()=>{
+      //     rating.forEach((ele)=>{
+      //       if(ele !== element){
+      //         ele.classList.remove('active')
+      //       }else{
+      //         ele.classList.toggle('active')
+      //       }
+      //     })
+      //   }))
+      // })
     </script>
   </body>
 </html>
